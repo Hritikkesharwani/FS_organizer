@@ -13,6 +13,11 @@ let types = {
 function fn (path){
     let content = fs.readdirSync(path);
     let folderPath = paths.join(path,"organize");
+    let organisePresent = fs.existsSync(folderPath);     
+    if(organisePresent) {         
+    console.log("File is already organized in organize folder 😎");
+    return;     
+}
     fs.mkdirSync(folderPath);
 
     let mediaPath = paths.join(folderPath,"media");
@@ -52,7 +57,7 @@ function fn (path){
         
 
     }
-    console.log("your file organized successfully");
+    console.log("Your file organized successfully 😉");
 
 }
 module.exports = {
